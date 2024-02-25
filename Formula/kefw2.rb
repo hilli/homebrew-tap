@@ -11,7 +11,7 @@ class Kefw2 < Formula
   on_macos do
     if Hardware::CPU.arm?
       url "https://github.com/hilli/go-kef-w2/releases/download/v0.0.2/go-kef-w2_Darwin_arm64.tar.gz"
-      sha256 "2392a18c7d4f7a6b31e27f56ccaa7d0eefe0b18b78748fed85021c536caef99b"
+      sha256 "e8de1c27cbd548e94ba578b7fe64c67910a4c194356370585562522980355911"
 
       def install
         bin.install "kefw2"
@@ -22,7 +22,7 @@ class Kefw2 < Formula
     end
     if Hardware::CPU.intel?
       url "https://github.com/hilli/go-kef-w2/releases/download/v0.0.2/go-kef-w2_Darwin_x86_64.tar.gz"
-      sha256 "11d326fe612e0fc54a22f6022a6b894342ddaa1d0f075a9c5e030c4a4cdece0f"
+      sha256 "b0495f0dfd6d762a748c536ccad9031b2df9a48d33bfa9bb2b07e604b16da501"
 
       def install
         bin.install "kefw2"
@@ -34,9 +34,9 @@ class Kefw2 < Formula
   end
 
   on_linux do
-    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/hilli/go-kef-w2/releases/download/v0.0.2/go-kef-w2_Linux_arm64.tar.gz"
-      sha256 "45f85b71bfb9d3b22129ad51a4e79caf402b6b25c51a7e797f3f8519fb7a1897"
+    if Hardware::CPU.intel?
+      url "https://github.com/hilli/go-kef-w2/releases/download/v0.0.2/go-kef-w2_Linux_x86_64.tar.gz"
+      sha256 "a1f08e55643dba3df0776928de49405ff906c53762487f6c504c656a470dd47c"
 
       def install
         bin.install "kefw2"
@@ -45,9 +45,9 @@ class Kefw2 < Formula
         fish_completion.install "completions/kefw2.fish"
       end
     end
-    if Hardware::CPU.intel?
-      url "https://github.com/hilli/go-kef-w2/releases/download/v0.0.2/go-kef-w2_Linux_x86_64.tar.gz"
-      sha256 "c516ad252741f054a1d2eb1e5e4c06f5ef0dc2a443127f8aeb30ef5cabeec70b"
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      url "https://github.com/hilli/go-kef-w2/releases/download/v0.0.2/go-kef-w2_Linux_arm64.tar.gz"
+      sha256 "87f939baa9c5dc6857c4e2b42648465fa111cec9df38e3e2f354e77d59ccaa96"
 
       def install
         bin.install "kefw2"
