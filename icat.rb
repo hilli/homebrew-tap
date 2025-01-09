@@ -11,7 +11,7 @@ class Icat < Formula
   on_macos do
     if Hardware::CPU.intel?
       url "https://github.com/hilli/icat/releases/download/v0.0.1/icat_Darwin_x86_64.tar.gz"
-      sha256 "9b38c473ab99bb3f45b9ff68c4b558015667fd49e61278b5e8400bb4de0d1065"
+      sha256 "c227f6df6d8b1da55ca991b7b2efe5cb803fcc58f6ae25c296fbd84aa70ba9d0"
 
       def install
         bin.install "icat"
@@ -19,7 +19,7 @@ class Icat < Formula
     end
     if Hardware::CPU.arm?
       url "https://github.com/hilli/icat/releases/download/v0.0.1/icat_Darwin_arm64.tar.gz"
-      sha256 "9c2d1baf63c0c2128985c8bfa2c8dd32f28469b022f1ce9bb9187ef539acbb7a"
+      sha256 "622bc7cb5cb8d4acc4a8d67d1886ea6e850dd7db2e1284d3eb0d1cacca118c27"
 
       def install
         bin.install "icat"
@@ -31,7 +31,7 @@ class Icat < Formula
     if Hardware::CPU.intel?
       if Hardware::CPU.is_64_bit?
         url "https://github.com/hilli/icat/releases/download/v0.0.1/icat_Linux_x86_64.tar.gz"
-        sha256 "807ac36e2dcacd278a7ab3007f986b7d9b9f183354a1441fcfe66be872f0a35b"
+        sha256 "1fb5c0cd7959da27da4c035fc2fa98e447ef177b20056a89ba1705df1ec95da5"
 
         def install
           bin.install "icat"
@@ -41,7 +41,7 @@ class Icat < Formula
     if Hardware::CPU.arm?
       if Hardware::CPU.is_64_bit?
         url "https://github.com/hilli/icat/releases/download/v0.0.1/icat_Linux_arm64.tar.gz"
-        sha256 "d606e8b8c014148abae88336318020ed2f34b3a6a716182fad38a3d276cf241a"
+        sha256 "1262da79b7232270ec2529eacb011ade96dbb775af8c8e659324247960aafbe4"
 
         def install
           bin.install "icat"
