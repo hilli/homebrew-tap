@@ -5,21 +5,21 @@
 class Icat < Formula
   desc "Command line tool for displaying images in the terminal"
   homepage "https://github.com/hilli/icat"
-  version "0.0.3"
+  version "0.0.4"
   license "MIT"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/hilli/icat/releases/download/v0.0.3/icat_Darwin_x86_64.tar.gz"
-      sha256 "bd7dc4bf54ec92f62a494748dda8d85eaed2f07d099d1ed511aa2ebf5b1c7f16"
+      url "https://github.com/hilli/icat/releases/download/v0.0.4/icat_Darwin_x86_64.tar.gz"
+      sha256 "3ccc6c67289deab2a57d5b4de7a9b8f197796a290d8577c9f59b469f30b72fe2"
 
       def install
         bin.install "icat"
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/hilli/icat/releases/download/v0.0.3/icat_Darwin_arm64.tar.gz"
-      sha256 "7179187b93b7822059bf1ff2aacc2b0550cb21825efb1b0a19da6158eda2ade4"
+      url "https://github.com/hilli/icat/releases/download/v0.0.4/icat_Darwin_arm64.tar.gz"
+      sha256 "291db8cadf4b354421482841229cea26e1908178eba673e3839d48aa2c316002"
 
       def install
         bin.install "icat"
@@ -30,8 +30,8 @@ class Icat < Formula
   on_linux do
     if Hardware::CPU.intel?
       if Hardware::CPU.is_64_bit?
-        url "https://github.com/hilli/icat/releases/download/v0.0.3/icat_Linux_x86_64.tar.gz"
-        sha256 "ec24e14101eefd9b2fd1b2c5b32d00926b0715ac74d08e9de03e16434c26ecdd"
+        url "https://github.com/hilli/icat/releases/download/v0.0.4/icat_Linux_x86_64.tar.gz"
+        sha256 "b3a9bff7e46ee2adca2cd0880d38c79023b671b4b22ff6883c3a06d2edef6d46"
 
         def install
           bin.install "icat"
@@ -40,8 +40,8 @@ class Icat < Formula
     end
     if Hardware::CPU.arm?
       if Hardware::CPU.is_64_bit?
-        url "https://github.com/hilli/icat/releases/download/v0.0.3/icat_Linux_arm64.tar.gz"
-        sha256 "3e78620a37be1a2423f94d498d18df3091b5fdbae41884c86464d91b2fa86338"
+        url "https://github.com/hilli/icat/releases/download/v0.0.4/icat_Linux_arm64.tar.gz"
+        sha256 "de99606b641d880ea15f757363f1352e2731df5b8e0507e1d6c155b55e7c3074"
 
         def install
           bin.install "icat"
