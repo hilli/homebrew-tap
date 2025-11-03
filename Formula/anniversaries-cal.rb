@@ -5,21 +5,21 @@
 class AnniversariesCal < Formula
   desc "Generate interesting date calculations from birthdates, events, and marriages"
   homepage "https://github.com/hilli/anniversaries-cal"
-  version "0.0.1"
+  version "0.0.3"
   license "MIT"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/hilli/anniversaries-cal/releases/download/v0.0.1/anniversaries-cal_Darwin_x86_64.tar.gz"
-      sha256 "b418703bda41867fbf43073622c77fd73bcf9eb716e56255f806432c6e3145ff"
+      url "https://github.com/hilli/anniversaries-cal/releases/download/v0.0.3/anniversaries-cal_Darwin_x86_64.tar.gz"
+      sha256 "1c9a557a210adf67e862904656fea1fa47fabdb19082b29cd248902be06d798f"
 
       def install
         bin.install "anniversaries-cal"
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/hilli/anniversaries-cal/releases/download/v0.0.1/anniversaries-cal_Darwin_arm64.tar.gz"
-      sha256 "ed57a23c2b8e6f425dbbf6fea169de2362bd7bf7a1deb13e5e8abafa4b4adc67"
+      url "https://github.com/hilli/anniversaries-cal/releases/download/v0.0.3/anniversaries-cal_Darwin_arm64.tar.gz"
+      sha256 "8987cbdebe6fdd34a9ee69166c371bb9df220fc4f8a1e5d572510a9c3ec23076"
 
       def install
         bin.install "anniversaries-cal"
@@ -29,15 +29,15 @@ class AnniversariesCal < Formula
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/hilli/anniversaries-cal/releases/download/v0.0.1/anniversaries-cal_Linux_x86_64.tar.gz"
-      sha256 "3e8cf00d75ba66aae24ced0c8dc62277d697403018ee4f627b9358fa07bba24b"
+      url "https://github.com/hilli/anniversaries-cal/releases/download/v0.0.3/anniversaries-cal_Linux_x86_64.tar.gz"
+      sha256 "2e64d4aff80fe61c13d9c137cdefbb2fac1f8b773dae3cdb9bf24b59d60134c9"
       def install
         bin.install "anniversaries-cal"
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/hilli/anniversaries-cal/releases/download/v0.0.1/anniversaries-cal_Linux_arm64.tar.gz"
-      sha256 "be15766f4b8e080c3b8d7dba8b168a87b5ce1d1c15108462c4e47567ab4abbef"
+      url "https://github.com/hilli/anniversaries-cal/releases/download/v0.0.3/anniversaries-cal_Linux_arm64.tar.gz"
+      sha256 "f7f53b625a5b6093bf0354288127c0c347a4ab46cd67f80095506c9125d5d00c"
       def install
         bin.install "anniversaries-cal"
       end
