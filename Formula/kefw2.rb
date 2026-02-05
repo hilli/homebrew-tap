@@ -5,13 +5,13 @@
 class Kefw2 < Formula
   desc "Command for handling KEF W2 platform speakers (LSX Wireless II (LT)/LS50 Wireless II/LS60 Wireless)"
   homepage "https://github.com/hilli/go-kef-w2"
-  version "0.2.4"
+  version "0.2.5"
   license "MIT"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/hilli/go-kef-w2/releases/download/v0.2.4/go-kef-w2_Darwin_x86_64.tar.gz"
-      sha256 "215b0cecd4fbebc6dc3529f090e4a6cc53161966082842773bc1188ddd3ce58f"
+      url "https://github.com/hilli/go-kef-w2/releases/download/v0.2.5/go-kef-w2_Darwin_x86_64.tar.gz"
+      sha256 "97b962450e86db7b401b4e41b78ab0a728991f39ad4f5a062cbc8d251678a18e"
 
       def install
         bin.install "kefw2"
@@ -21,8 +21,8 @@ class Kefw2 < Formula
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/hilli/go-kef-w2/releases/download/v0.2.4/go-kef-w2_Darwin_arm64.tar.gz"
-      sha256 "75e34d3eec5dc85843da2a1f6f8621b00e8af5c89f92bf13ab3ae8de9877ab9c"
+      url "https://github.com/hilli/go-kef-w2/releases/download/v0.2.5/go-kef-w2_Darwin_arm64.tar.gz"
+      sha256 "d6d4955444f6987bd8d9cd38cd59c43678106063cc7aeee02105a36ea026b359"
 
       def install
         bin.install "kefw2"
@@ -35,8 +35,8 @@ class Kefw2 < Formula
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/hilli/go-kef-w2/releases/download/v0.2.4/go-kef-w2_Linux_x86_64.tar.gz"
-      sha256 "f08dd51b408b643b04593e6510cd2639a05eac0b50c855a4a8449c820bb72f59"
+      url "https://github.com/hilli/go-kef-w2/releases/download/v0.2.5/go-kef-w2_Linux_x86_64.tar.gz"
+      sha256 "151bebb87effa843432d9a62c3d5872d854999c3cb5f6c9035d76ba8142d9934"
       def install
         bin.install "kefw2"
         bash_completion.install "completions/kefw2.bash" => "kefw2"
@@ -45,8 +45,8 @@ class Kefw2 < Formula
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/hilli/go-kef-w2/releases/download/v0.2.4/go-kef-w2_Linux_arm64.tar.gz"
-      sha256 "c19e39d07a445153bac8dd6996aa06ff481fc4fa498954e69ed58fb1f22b44b8"
+      url "https://github.com/hilli/go-kef-w2/releases/download/v0.2.5/go-kef-w2_Linux_arm64.tar.gz"
+      sha256 "42923f89d64a856150dae257605cf741651dc49ddb56a057bc91aaac5470ab70"
       def install
         bin.install "kefw2"
         bash_completion.install "completions/kefw2.bash" => "kefw2"
