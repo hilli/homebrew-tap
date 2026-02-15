@@ -9,7 +9,7 @@ Homebrew tap to install [some of] my software from.
 Control your KEF W2 platform speakers from the command line or web UI.
 
 ```shell
-brew install hilli/tap/kefw2 
+brew install hilli/tap/kefw2
 brew install hilli/tap/kefw2ui
 ```
 
@@ -34,7 +34,7 @@ Source: https://github.com/hilli/anniversaries-cal
 ### dukaone - DukaOne SDK for Go - Controll your Duka One/Sike/ fans from the command line or web UI
 
 ```shell
-brew install hilli/tap/dukaone 
+brew install hilli/tap/dukaone
 brew install hilli/tap/dukaone-web
 ```
 
