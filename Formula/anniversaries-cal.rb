@@ -5,23 +5,23 @@
 class AnniversariesCal < Formula
   desc "Generate interesting date calculations from birthdates, events, and marriages"
   homepage "https://github.com/hilli/anniversaries-cal"
-  version "0.0.3"
+  version "0.0.4"
   license "MIT"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/hilli/anniversaries-cal/releases/download/v0.0.3/anniversaries-cal_Darwin_x86_64.tar.gz"
-      sha256 "1c9a557a210adf67e862904656fea1fa47fabdb19082b29cd248902be06d798f"
+      url "https://github.com/hilli/anniversaries-cal/releases/download/v0.0.4/anniversaries-cal_Darwin_x86_64.tar.gz"
+      sha256 "53935fb0ccb41ba8398f2670a51e88e33e60c66f17220504b0631ec9c56d845f"
 
-      def install
+      define_method(:install) do
         bin.install "anniversaries-cal"
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/hilli/anniversaries-cal/releases/download/v0.0.3/anniversaries-cal_Darwin_arm64.tar.gz"
-      sha256 "8987cbdebe6fdd34a9ee69166c371bb9df220fc4f8a1e5d572510a9c3ec23076"
+      url "https://github.com/hilli/anniversaries-cal/releases/download/v0.0.4/anniversaries-cal_Darwin_arm64.tar.gz"
+      sha256 "299651ef842e5087ccfc85c2f3c80edeac91bfc975db854008e9d661ad42e7be"
 
-      def install
+      define_method(:install) do
         bin.install "anniversaries-cal"
       end
     end
@@ -29,16 +29,16 @@ class AnniversariesCal < Formula
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/hilli/anniversaries-cal/releases/download/v0.0.3/anniversaries-cal_Linux_x86_64.tar.gz"
-      sha256 "2e64d4aff80fe61c13d9c137cdefbb2fac1f8b773dae3cdb9bf24b59d60134c9"
-      def install
+      url "https://github.com/hilli/anniversaries-cal/releases/download/v0.0.4/anniversaries-cal_Linux_x86_64.tar.gz"
+      sha256 "3fbfe7f712541d84c7e2caacb95c0010ada41c143aa1b2d680242ee954a6f3a3"
+      define_method(:install) do
         bin.install "anniversaries-cal"
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/hilli/anniversaries-cal/releases/download/v0.0.3/anniversaries-cal_Linux_arm64.tar.gz"
-      sha256 "f7f53b625a5b6093bf0354288127c0c347a4ab46cd67f80095506c9125d5d00c"
-      def install
+      url "https://github.com/hilli/anniversaries-cal/releases/download/v0.0.4/anniversaries-cal_Linux_arm64.tar.gz"
+      sha256 "10d8f8672c6179928a93811af8bbef72c29a4a3ef5784c144301582d4f492e3a"
+      define_method(:install) do
         bin.install "anniversaries-cal"
       end
     end
