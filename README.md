@@ -39,3 +39,11 @@ brew install hilli/tap/dukaone-web
 ```
 
 Source: https://github.com/hilli/go-dukaonesdk
+
+### mac-wifi-cleaner
+
+```shell
+brew install hilli/tap/mac-wifi-cleaner
+```
+
+Source: https://github.com/hilli/mac-wifi-cleaner
