@@ -64,6 +64,8 @@ A Go reimplementation of the venerable Perl [imapsync](https://imapsync.lamiral.
 
 Syncs are resumable and safe to re-run: messages already at the destination are recognised rather than copied again, and `--dry-run` shows what a run would do before it does it.
 
+Either side of a sync can be a `file://` directory instead of a server, which makes it a mail backup tool as well: one `.eml` file per message, cheap to run incrementally, and restorable to any server rather than only the one it came from.
+
 Existing imapsync command lines keep working through the `compat` shim, which translates them and prints the translation before running it. Symlinking the binary to `imapsync` makes it a drop-in for scripts that call it by name.
 
 ```shell
