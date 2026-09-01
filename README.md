@@ -57,3 +57,17 @@ brew install hilli/tap/sievemgmt
 ```
 
 Source: https://github.com/hilli/sievemgmt
+
+### imapsync-go - Concurrent IMAP account synchronisation
+
+A Go reimplementation of the venerable Perl [imapsync](https://imapsync.lamiral.info/). The reason it exists is concurrency: IMAP has no multiplexing, so it spreads the work over many connections at once — across folders and within a single large one — and adapts that number to whatever the server will actually hold, rather than to what you guessed.
+
+Syncs are resumable and safe to re-run: messages already at the destination are recognised rather than copied again, and `--dry-run` shows what a run would do before it does it.
+
+Existing imapsync command lines keep working through the `compat` shim, which translates them and prints the translation before running it. Symlinking the binary to `imapsync` makes it a drop-in for scripts that call it by name.
+
+```shell
+brew install hilli/tap/imapsync-go
+```
+
+Source: https://github.com/hilli/imapsync-go
