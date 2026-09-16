@@ -5,25 +5,21 @@ cask "imapsync-go" do
   on_macos do
     on_arm do
       sha256 "c9c7c3c7592ec4c4ea4fb43e4a44147fa709f42b03001910a794e818dc575f2f"
-      url "https://github.com/hilli/imapsync-go/releases/download/v#{version}/imapsync-go_Darwin_arm64.tar.gz",
-        verified: "github.com/hilli/imapsync-go/"
+      url "https://github.com/hilli/imapsync-go/releases/download/v#{version}/imapsync-go_Darwin_arm64.tar.gz"
     end
     on_intel do
       sha256 "4eed0f80c385641414c48677d1fc012ca10b1c1525b75dac8c27b65f25fddb94"
-      url "https://github.com/hilli/imapsync-go/releases/download/v#{version}/imapsync-go_Darwin_x86_64.tar.gz",
-        verified: "github.com/hilli/imapsync-go/"
+      url "https://github.com/hilli/imapsync-go/releases/download/v#{version}/imapsync-go_Darwin_x86_64.tar.gz"
     end
   end
   on_linux do
     on_arm do
       sha256 "43a8f3059dd698aad8626835d360f65908a873c7a0a5a535e64529f4ec647072"
-      url "https://github.com/hilli/imapsync-go/releases/download/v#{version}/imapsync-go_Linux_arm64.tar.gz",
-        verified: "github.com/hilli/imapsync-go/"
+      url "https://github.com/hilli/imapsync-go/releases/download/v#{version}/imapsync-go_Linux_arm64.tar.gz"
     end
     on_intel do
       sha256 "73653fe486ef465436539467d4c94f98a07f14ebea0f012f20b96ee9007febe7"
-      url "https://github.com/hilli/imapsync-go/releases/download/v#{version}/imapsync-go_Linux_x86_64.tar.gz",
-        verified: "github.com/hilli/imapsync-go/"
+      url "https://github.com/hilli/imapsync-go/releases/download/v#{version}/imapsync-go_Linux_x86_64.tar.gz"
     end
   end
 
@@ -40,9 +36,9 @@ cask "imapsync-go" do
   fish_completion "completions/imapsync-go.fish"
   zsh_completion "completions/imapsync-go.zsh"
 
-  postflight do
-    if OS.mac?
-      system_command "/usr/bin/xattr", args: ["-dr", "com.apple.quarantine", "#{staged_path}/imapsync-go"]
+  postflight_steps do
+    on_macos do
+      run "/usr/bin/xattr", args: ["-dr", "com.apple.quarantine", "{{staged_path}}/imapsync-go"]
     end
   end
 

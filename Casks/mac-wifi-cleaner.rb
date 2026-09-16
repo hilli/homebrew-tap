@@ -13,20 +13,18 @@ cask "mac-wifi-cleaner" do
 
   on_macos do
     on_intel do
-      url "https://github.com/hilli/mac-wifi-cleaner/releases/download/v#{version}/mac-wifi-cleaner_Darwin_x86_64.tar.gz",
-        verified: "github.com/hilli/mac-wifi-cleaner"
+      url "https://github.com/hilli/mac-wifi-cleaner/releases/download/v#{version}/mac-wifi-cleaner_Darwin_x86_64.tar.gz"
       sha256 "4acc4331e97a0dd6f97a04f109fab05cf46625cbc66a6b765d09314cf721f9c6"
     end
     on_arm do
-      url "https://github.com/hilli/mac-wifi-cleaner/releases/download/v#{version}/mac-wifi-cleaner_Darwin_arm64.tar.gz",
-        verified: "github.com/hilli/mac-wifi-cleaner"
+      url "https://github.com/hilli/mac-wifi-cleaner/releases/download/v#{version}/mac-wifi-cleaner_Darwin_arm64.tar.gz"
       sha256 "8a95a3af970f8bb4b528be2fefa798e24071d9e8ea990d5df41fe2f0330dbd6d"
     end
   end
 
-  postflight do
-    if OS.mac?
-      system_command "/usr/bin/xattr", args: ["-dr", "com.apple.quarantine", "#{staged_path}/mac-wifi-cleaner"]
+  postflight_steps do
+    on_macos do
+      run "/usr/bin/xattr", args: ["-dr", "com.apple.quarantine", "{{staged_path}}/mac-wifi-cleaner"]
     end
   end
 

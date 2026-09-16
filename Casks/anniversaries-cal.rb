@@ -13,33 +13,29 @@ cask "anniversaries-cal" do
 
   on_macos do
     on_intel do
-      url "https://github.com/hilli/anniversaries-cal/releases/download/v#{version}/anniversaries-cal_Darwin_x86_64.tar.gz",
-        verified: "github.com/hilli/anniversaries-cal"
+      url "https://github.com/hilli/anniversaries-cal/releases/download/v#{version}/anniversaries-cal_Darwin_x86_64.tar.gz"
       sha256 "3fbb1c8857af24156353153f21963326fbafde7a7d9cd9b25a27a91ac1b4d75e"
     end
     on_arm do
-      url "https://github.com/hilli/anniversaries-cal/releases/download/v#{version}/anniversaries-cal_Darwin_arm64.tar.gz",
-        verified: "github.com/hilli/anniversaries-cal"
+      url "https://github.com/hilli/anniversaries-cal/releases/download/v#{version}/anniversaries-cal_Darwin_arm64.tar.gz"
       sha256 "7cef75104db9687fe14206df420dd5f222d74e454cdf50f431ea6a1348acf5f4"
     end
   end
 
   on_linux do
     on_intel do
-      url "https://github.com/hilli/anniversaries-cal/releases/download/v#{version}/anniversaries-cal_Linux_x86_64.tar.gz",
-        verified: "github.com/hilli/anniversaries-cal"
+      url "https://github.com/hilli/anniversaries-cal/releases/download/v#{version}/anniversaries-cal_Linux_x86_64.tar.gz"
       sha256 "749a220413ed636904a2991a833fb77f90ec5a7f166b5672b2e35dfa2948fc9d"
     end
     on_arm do
-      url "https://github.com/hilli/anniversaries-cal/releases/download/v#{version}/anniversaries-cal_Linux_arm64.tar.gz",
-        verified: "github.com/hilli/anniversaries-cal"
+      url "https://github.com/hilli/anniversaries-cal/releases/download/v#{version}/anniversaries-cal_Linux_arm64.tar.gz"
       sha256 "5fef7ce82269b0da04e6055fcde5b101bb1aeea1550af5807bf2c2a2f4af8ffa"
     end
   end
 
-  postflight do
-    if OS.mac?
-      system_command "/usr/bin/xattr", args: ["-dr", "com.apple.quarantine", "#{staged_path}/anniversaries-cal"]
+  postflight_steps do
+    on_macos do
+      run "/usr/bin/xattr", args: ["-dr", "com.apple.quarantine", "{{staged_path}}/anniversaries-cal"]
     end
   end
 

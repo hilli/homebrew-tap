@@ -5,26 +5,22 @@ cask "sievemgmt" do
   on_macos do
     on_intel do
       sha256 "95eec09c151813048254c5ad32a936faf9c07b034e39fdefa776dccfe5c6c6d5"
-      url "https://github.com/hilli/sievemgmt/releases/download/v#{version}/sievemgmt_Darwin_x86_64.tar.gz",
-        verified: "github.com/hilli/sievemgmt"
+      url "https://github.com/hilli/sievemgmt/releases/download/v#{version}/sievemgmt_Darwin_x86_64.tar.gz"
     end
     on_arm do
       sha256 "51a8d9354a7d9ca48491ade1107a74cf64f8dff12cc5db315cc8abfdec6d1095"
-      url "https://github.com/hilli/sievemgmt/releases/download/v#{version}/sievemgmt_Darwin_arm64.tar.gz",
-        verified: "github.com/hilli/sievemgmt"
+      url "https://github.com/hilli/sievemgmt/releases/download/v#{version}/sievemgmt_Darwin_arm64.tar.gz"
     end
   end
 
   on_linux do
     on_intel do
       sha256 "604be0dc7a9d700b91d9fa6a3bbb048d396918df08f1afb52a7c17de9b06cfaf"
-      url "https://github.com/hilli/sievemgmt/releases/download/v#{version}/sievemgmt_Linux_x86_64.tar.gz",
-        verified: "github.com/hilli/sievemgmt"
+      url "https://github.com/hilli/sievemgmt/releases/download/v#{version}/sievemgmt_Linux_x86_64.tar.gz"
     end
     on_arm do
       sha256 "5a2ead7b34091d862ce3d1434ad488b8fe057b9b2dfa24a6458d7166a7ff14e8"
-      url "https://github.com/hilli/sievemgmt/releases/download/v#{version}/sievemgmt_Linux_arm64.tar.gz",
-        verified: "github.com/hilli/sievemgmt"
+      url "https://github.com/hilli/sievemgmt/releases/download/v#{version}/sievemgmt_Linux_arm64.tar.gz"
     end
   end
 
@@ -41,9 +37,9 @@ cask "sievemgmt" do
   fish_completion "completions/sievemgmt.fish"
   zsh_completion "completions/sievemgmt.zsh"
 
-  postflight do
-    if OS.mac?
-      system_command "/usr/bin/xattr", args: ["-dr", "com.apple.quarantine", "#{staged_path}/sievemgmt"]
+  postflight_steps do
+    on_macos do
+      run "/usr/bin/xattr", args: ["-dr", "com.apple.quarantine", "{{staged_path}}/sievemgmt"]
     end
   end
 

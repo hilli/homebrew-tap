@@ -13,33 +13,29 @@ cask "dukaone-web" do
 
   on_macos do
     on_intel do
-      url "https://github.com/hilli/go-dukaonesdk/releases/download/v#{version}/dukaone-web_Darwin_x86_64.tar.gz",
-        verified: "github.com/hilli/go-dukaonesdk/"
+      url "https://github.com/hilli/go-dukaonesdk/releases/download/v#{version}/dukaone-web_Darwin_x86_64.tar.gz"
       sha256 "00ed1ab1726615007f1142f81964f94209514951512f236869347c517bbc00a1"
     end
     on_arm do
-      url "https://github.com/hilli/go-dukaonesdk/releases/download/v#{version}/dukaone-web_Darwin_arm64.tar.gz",
-        verified: "github.com/hilli/go-dukaonesdk/"
+      url "https://github.com/hilli/go-dukaonesdk/releases/download/v#{version}/dukaone-web_Darwin_arm64.tar.gz"
       sha256 "693939f068d68e3f7b3eca166293a1870511614361682f59e39f29191f782e22"
     end
   end
 
   on_linux do
     on_intel do
-      url "https://github.com/hilli/go-dukaonesdk/releases/download/v#{version}/dukaone-web_Linux_x86_64.tar.gz",
-        verified: "github.com/hilli/go-dukaonesdk/"
+      url "https://github.com/hilli/go-dukaonesdk/releases/download/v#{version}/dukaone-web_Linux_x86_64.tar.gz"
       sha256 "4180eb8146a2555c0a6e0ddc8c9e3bf3526e4e21a3c7395f5b47a4f1f236221f"
     end
     on_arm do
-      url "https://github.com/hilli/go-dukaonesdk/releases/download/v#{version}/dukaone-web_Linux_arm64.tar.gz",
-        verified: "github.com/hilli/go-dukaonesdk/"
+      url "https://github.com/hilli/go-dukaonesdk/releases/download/v#{version}/dukaone-web_Linux_arm64.tar.gz"
       sha256 "6450c60568cfb5ec120a6615f5f9a56e1f633222e64f64603777efb94c3914cf"
     end
   end
 
-  postflight do
-    if OS.mac?
-      system_command "/usr/bin/xattr", args: ["-dr", "com.apple.quarantine", "#{staged_path}/dukaone-web"]
+  postflight_steps do
+    on_macos do
+      run "/usr/bin/xattr", args: ["-dr", "com.apple.quarantine", "{{staged_path}}/dukaone-web"]
     end
   end
 

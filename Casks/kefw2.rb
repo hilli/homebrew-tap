@@ -5,26 +5,22 @@ cask "kefw2" do
   on_macos do
     on_intel do
       sha256 "0922d8f1e111b14040fbe73c02b06f9cccc2ed3069b68032949836a8086bd4f0"
-      url "https://github.com/hilli/go-kef-w2/releases/download/v#{version}/go-kef-w2_Darwin_x86_64.tar.gz",
-        verified: "github.com/hilli/go-kef-w2/"
+      url "https://github.com/hilli/go-kef-w2/releases/download/v#{version}/go-kef-w2_Darwin_x86_64.tar.gz"
     end
     on_arm do
       sha256 "2142d499d1ea0f02ba17eb7d2df5404fc5c029ec68ca3d0d415f39aad5f430de"
-      url "https://github.com/hilli/go-kef-w2/releases/download/v#{version}/go-kef-w2_Darwin_arm64.tar.gz",
-        verified: "github.com/hilli/go-kef-w2/"
+      url "https://github.com/hilli/go-kef-w2/releases/download/v#{version}/go-kef-w2_Darwin_arm64.tar.gz"
     end
   end
 
   on_linux do
     on_intel do
       sha256 "5ce6841ed6ee756c1ee51b00eae7bfaaae2478fc245688fc2d43c49edb3253b5"
-      url "https://github.com/hilli/go-kef-w2/releases/download/v#{version}/go-kef-w2_Linux_x86_64.tar.gz",
-        verified: "github.com/hilli/go-kef-w2/"
+      url "https://github.com/hilli/go-kef-w2/releases/download/v#{version}/go-kef-w2_Linux_x86_64.tar.gz"
     end
     on_arm do
       sha256 "6d51ecb91fbf5ac4eafe5588550847133c79915a4345c1bab5541ac3d43deb08"
-      url "https://github.com/hilli/go-kef-w2/releases/download/v#{version}/go-kef-w2_Linux_arm64.tar.gz",
-        verified: "github.com/hilli/go-kef-w2/"
+      url "https://github.com/hilli/go-kef-w2/releases/download/v#{version}/go-kef-w2_Linux_arm64.tar.gz"
     end
   end
 
@@ -41,9 +37,9 @@ cask "kefw2" do
   fish_completion "completions/kefw2.fish"
   zsh_completion "completions/kefw2.zsh"
 
-  postflight do
-    if OS.mac?
-      system_command "/usr/bin/xattr", args: ["-dr", "com.apple.quarantine", "#{staged_path}/kefw2"]
+  postflight_steps do
+    on_macos do
+      run "/usr/bin/xattr", args: ["-dr", "com.apple.quarantine", "{{staged_path}}/kefw2"]
     end
   end
 
