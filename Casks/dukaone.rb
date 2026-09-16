@@ -16,33 +16,29 @@ cask "dukaone" do
 
   on_macos do
     on_intel do
-      url "https://github.com/hilli/go-dukaonesdk/releases/download/v#{version}/dukaone_Darwin_x86_64.tar.gz",
-        verified: "github.com/hilli/go-dukaonesdk/"
+      url "https://github.com/hilli/go-dukaonesdk/releases/download/v#{version}/dukaone_Darwin_x86_64.tar.gz"
       sha256 "36e416c856bdd54728c62a503e6b73330cac6cb296c218e39db1591e20d63efb"
     end
     on_arm do
-      url "https://github.com/hilli/go-dukaonesdk/releases/download/v#{version}/dukaone_Darwin_arm64.tar.gz",
-        verified: "github.com/hilli/go-dukaonesdk/"
+      url "https://github.com/hilli/go-dukaonesdk/releases/download/v#{version}/dukaone_Darwin_arm64.tar.gz"
       sha256 "1b98bacd93b336c2f6c156077c7a4859432ffbfc7348036b5fbf72814ba29584"
     end
   end
 
   on_linux do
     on_intel do
-      url "https://github.com/hilli/go-dukaonesdk/releases/download/v#{version}/dukaone_Linux_x86_64.tar.gz",
-        verified: "github.com/hilli/go-dukaonesdk/"
+      url "https://github.com/hilli/go-dukaonesdk/releases/download/v#{version}/dukaone_Linux_x86_64.tar.gz"
       sha256 "d66705d4feb92643c72ae1209947b566ebb89d0db33e0e88f42c8e9baeffdbce"
     end
     on_arm do
-      url "https://github.com/hilli/go-dukaonesdk/releases/download/v#{version}/dukaone_Linux_arm64.tar.gz",
-        verified: "github.com/hilli/go-dukaonesdk/"
+      url "https://github.com/hilli/go-dukaonesdk/releases/download/v#{version}/dukaone_Linux_arm64.tar.gz"
       sha256 "8452ee6945ca7ce31c3453d6bcac6dd7192d45e82488aa8ae8bc702e2fee4b52"
     end
   end
 
-  postflight do
-    if OS.mac?
-      system_command "/usr/bin/xattr", args: ["-dr", "com.apple.quarantine", "#{staged_path}/dukaone"]
+  postflight_steps do
+    on_macos do
+      run "/usr/bin/xattr", args: ["-dr", "com.apple.quarantine", "{{staged_path}}/dukaone"]
     end
   end
 

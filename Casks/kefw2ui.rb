@@ -13,33 +13,29 @@ cask "kefw2ui" do
 
   on_macos do
     on_intel do
-      url "https://github.com/hilli/kefw2ui/releases/download/v#{version}/kefw2ui_Darwin_x86_64.tar.gz",
-        verified: "github.com/hilli/kefw2ui/"
+      url "https://github.com/hilli/kefw2ui/releases/download/v#{version}/kefw2ui_Darwin_x86_64.tar.gz"
       sha256 "7ceeccdd16fa528353a5fd2f2621f48752bc60130f03d449394584747889b18b"
     end
     on_arm do
-      url "https://github.com/hilli/kefw2ui/releases/download/v#{version}/kefw2ui_Darwin_arm64.tar.gz",
-        verified: "github.com/hilli/kefw2ui/"
+      url "https://github.com/hilli/kefw2ui/releases/download/v#{version}/kefw2ui_Darwin_arm64.tar.gz"
       sha256 "ce94bf9df009761f770e8b4979a529a41baa802236ef5435797553a610b9b9fb"
     end
   end
 
   on_linux do
     on_intel do
-      url "https://github.com/hilli/kefw2ui/releases/download/v#{version}/kefw2ui_Linux_x86_64.tar.gz",
-        verified: "github.com/hilli/kefw2ui/"
+      url "https://github.com/hilli/kefw2ui/releases/download/v#{version}/kefw2ui_Linux_x86_64.tar.gz"
       sha256 "659696f0f445fa48425a47af8b4aefeb4c0882e7996eb1d2f51e1a3c684e6799"
     end
     on_arm do
-      url "https://github.com/hilli/kefw2ui/releases/download/v#{version}/kefw2ui_Linux_arm64.tar.gz",
-        verified: "github.com/hilli/kefw2ui/"
+      url "https://github.com/hilli/kefw2ui/releases/download/v#{version}/kefw2ui_Linux_arm64.tar.gz"
       sha256 "7500bc3fb9f57852a9bb81d333cc581b5a9a061a9a9eb07b188974189f6f9be9"
     end
   end
 
-  postflight do
-    if OS.mac?
-      system_command "/usr/bin/xattr", args: ["-dr", "com.apple.quarantine", "#{staged_path}/kefw2ui"]
+  postflight_steps do
+    on_macos do
+      run "/usr/bin/xattr", args: ["-dr", "com.apple.quarantine", "{{staged_path}}/kefw2ui"]
     end
   end
 
