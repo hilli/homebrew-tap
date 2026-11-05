@@ -5,47 +5,41 @@
 class Icat < Formula
   desc "Command line tool for displaying images in the terminal"
   homepage "https://github.com/hilli/icat"
-  version "0.0.7"
+  version "0.0.8"
   license "MIT"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/hilli/icat/releases/download/v0.0.7/icat_Darwin_x86_64.tar.gz"
-      sha256 "5c54fdb6d1ee06e54afe1dfabe6d38f9740ee25b26b5301d578bafd2d501fc57"
+      url "https://github.com/hilli/icat/releases/download/v0.0.8/icat_Darwin_x86_64.tar.gz"
+      sha256 "655654d7775ba2c99fce09293bbfb4287fe5c2bbf0f97b3f863583072c775d5d"
 
-      def install
+      define_method(:install) do
         bin.install "icat"
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/hilli/icat/releases/download/v0.0.7/icat_Darwin_arm64.tar.gz"
-      sha256 "1b05876d8c3462c83f6ee02e8605aab391092fc0e9a99625dec33d35a9edc7ca"
+      url "https://github.com/hilli/icat/releases/download/v0.0.8/icat_Darwin_arm64.tar.gz"
+      sha256 "415409d16642496fcfd66eb98972a8c6eaf488d0d9fdab9b341bc2bad3f1d520"
 
-      def install
+      define_method(:install) do
         bin.install "icat"
       end
     end
   end
 
   on_linux do
-    if Hardware::CPU.intel?
-      if Hardware::CPU.is_64_bit?
-        url "https://github.com/hilli/icat/releases/download/v0.0.7/icat_Linux_x86_64.tar.gz"
-        sha256 "46f7f3c5f57b24f3b2c2868cd55f80fb13e078dac7af436a80834a6d628f517c"
-
-        def install
-          bin.install "icat"
-        end
+    if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
+      url "https://github.com/hilli/icat/releases/download/v0.0.8/icat_Linux_x86_64.tar.gz"
+      sha256 "06f00647c23f2612e62310292968908e532d5ada03cc11bf91a87d42faa11a83"
+      define_method(:install) do
+        bin.install "icat"
       end
     end
-    if Hardware::CPU.arm?
-      if Hardware::CPU.is_64_bit?
-        url "https://github.com/hilli/icat/releases/download/v0.0.7/icat_Linux_arm64.tar.gz"
-        sha256 "31b0ff20ac57b080322950484649c166e13f52108e2be76b06cb95072ff498b1"
-
-        def install
-          bin.install "icat"
-        end
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      url "https://github.com/hilli/icat/releases/download/v0.0.8/icat_Linux_arm64.tar.gz"
+      sha256 "87dbe650327876ea94e8387ddfc58744b88236cd3cad3e636179a81526e0f195"
+      define_method(:install) do
+        bin.install "icat"
       end
     end
   end
